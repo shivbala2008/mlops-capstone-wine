@@ -28,6 +28,7 @@ jobs:
 
     - name: Run DVC Pipeline (Training Test)
       run: |
+        dvc init --no-scm
         dvc repro
 
   docker-build-push:
