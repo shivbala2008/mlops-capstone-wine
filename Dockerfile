@@ -1,5 +1,5 @@
 # Use a lightweight Python image
-FROM python:3.9-slim
+FROM python:3.9-slim-bullseye 
 
 # Set working directory
 WORKDIR /app
@@ -11,9 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the source code and necessary files
 COPY src/ src/
 COPY params.yaml .
-# In a real scenario, you pull the model from DVC remote here. 
-# For this capstone, we will run the training inside the container 
-# or copy the local script to run it.
 
-# Command to run the training script (simulating an inference execution or retraining)
+# Command to run the training script
 CMD ["python", "src/train.py"]
